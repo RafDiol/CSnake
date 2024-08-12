@@ -120,42 +120,21 @@ void handle_user_input() {
 		character = previousInput;
 	}
 
-	switch (character)
-	{
-		case 'W':
-			move_snake(0, -1);
-			previousInput = character;
-			break;
-		case 'w':
-			move_snake(0, -1);
-			previousInput = character;
-			break;
-		case 'S':
-			move_snake(0, 1);
-			previousInput = character;
-			break;
-		case 's':
-			move_snake(0, 1);
-			previousInput = character;
-			break;
-		case 'A':
-			move_snake(-1, 0);
-			previousInput = character;
-			break;
-		case 'a':
-			move_snake(-1, 0);
-			previousInput = character;
-			break;
-		case 'D':
-			move_snake(1, 0);
-			previousInput = character;
-			break;
-		case 'd':
-			move_snake(1, 0);
-			previousInput = character;
-			break;
-		default:
-			break;
+	if ((character == 'W' || character == 'w') && !(previousInput == 'S' || previousInput == 's')) {
+		move_snake(0, -1);
+		previousInput = character;
+	}
+	else if ((character == 'S' || character == 's') && !(previousInput == 'W' || previousInput == 'w')) {
+		move_snake(0, 1);
+		previousInput = character;
+	}
+	else if ((character == 'A' || character == 'a') && !(previousInput == 'D' || previousInput == 'd')) {
+		move_snake(-1, 0);
+		previousInput = character;
+	}
+	else if ((character == 'D' || character == 'd') && !(previousInput == 'A' || previousInput == 'a')) {
+		move_snake(1, 0);
+		previousInput = character;
 	}
 }
 
